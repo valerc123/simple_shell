@@ -55,45 +55,46 @@ int forky(char **argum, char *buff, char **path, char **env);
 int exitEnvBuilt(char **env, char *argum);
 
 #endif
+
 ```
->Create files
+Create files
 ```sh
 $ touch file1.c  file2.c
 ```
->Create directory named dirname
+Create directory named dirname
 ```sh
 $ mkdir dirname 
 ```
->Path of current directory in non-interactive mode
+Path of current directory in non-interactive mode
 ```sh
 $ echo "pwd" | ./hsh
 ```
-output:
+>output:
 ```
 /home/vagrant/simple_shell/
 ```
->Enter the folder dirname
+Enter the folder dirname
 ```
 cd dirname
 ```
->Path of the current directory
+Path of the current directory
 ```sh
 $ pwd
 ```
-output:
+>output:
 ```
 /home/vagrant/simple_Shell/dirname/
 ```
->Delete everything from the current directory in non-interactive mode
+Delete everything from the current directory in non-interactive mode
 ```sh
 $ echo "rm *" | ./hsh
 ```
->List each file's author in long format directory  including hidden files
+List each file's author in long format directory  including hidden files
 ```sh
 $ ls -la --author
 ```
 
-output:
+>output:
 
 ```
 total 68
@@ -116,7 +117,7 @@ drwxrwxr-x 8 vagrant vagrant vagrant 4096 Aug 26 20:23 .git
 -rw-rw-r-- 1 vagrant vagrant vagrant  780 Aug 26 20:23 strtok2.c
 ```
 
-#### BUILT-INS
+### BUILT-INS
 For print all enviroment variables:
 ```sh
 $ env
@@ -126,9 +127,9 @@ For exit the program:
 $ exit 
 ```
 
-#### AUTHORS
+### AUTHORS
 Valentina Rúa | [Twitter](https://twitter.com/329Valentina) | [Github](https://github.com/valerc123) 
-Santiago Agudelo |[Twitter](https://twitter.com/sagudecod97)| [Github](https://github.com/sagudecod97) 
+Santiago Agudelo | [Twitter](https://twitter.com/sagudecod97) | [Github](https://github.com/sagudecod97) 
 
 ### CONTACT
 Feel free to send us a message on github with your feedback or any suggestion, or if you have any problems.
