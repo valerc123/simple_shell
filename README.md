@@ -1,6 +1,6 @@
 # SIMPLE SHELL
 
-### ABOUT SHELL
+## ABOUT SHELL
 
 Shell is an environment in which we can run our commands, programs, and shell scripts. 
 It allows users to interact with the operating system, processing the commands that are given to them through the scripts. Shells are created through the implementation of system startup scripts.
@@ -27,11 +27,11 @@ Or non-interactive mode:
 $ echo "ls -l" | ./hsh
 ```
 ### EXAMPLES
->Display content of file holberton.h 
+1. Display content of file holberton.h 
 ```sh
 $ cat holberton.h
 ```
-output:
+>output:
 ```
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
@@ -57,15 +57,15 @@ int exitEnvBuilt(char **env, char *argum);
 #endif
 
 ```
-Create files
+2. Create files
 ```sh
 $ touch file1.c  file2.c
 ```
-Create directory named dirname
+3. Create directory named dirname
 ```sh
 $ mkdir dirname 
 ```
-Path of current directory in non-interactive mode
+4. Path of current directory in non-interactive mode
 ```sh
 $ echo "pwd" | ./hsh
 ```
@@ -73,11 +73,11 @@ $ echo "pwd" | ./hsh
 ```
 /home/vagrant/simple_shell/
 ```
-Enter the folder dirname
+5. Enter the folder dirname
 ```
 cd dirname
 ```
-Path of the current directory
+6. Path of the current directory
 ```sh
 $ pwd
 ```
@@ -85,17 +85,15 @@ $ pwd
 ```
 /home/vagrant/simple_Shell/dirname/
 ```
-Delete everything from the current directory in non-interactive mode
+7. Delete everything from the current directory in non-interactive mode
 ```sh
 $ echo "rm *" | ./hsh
 ```
-List each file's author in long format directory  including hidden files
+8. List each file's author in long format directory  including hidden files
 ```sh
 $ ls -la --author
 ```
-
 >output:
-
 ```
 total 68
 drwxrwxr-x 3 vagrant vagrant vagrant 4096 Aug 26 20:23 .
@@ -118,6 +116,7 @@ drwxrwxr-x 8 vagrant vagrant vagrant 4096 Aug 26 20:23 .git
 ```
 
 ### BUILT-INS
+
 For print all enviroment variables:
 ```sh
 $ env
@@ -128,7 +127,9 @@ $ exit
 ```
 
 ### AUTHORS
+
 Valentina Rúa | [Twitter](https://twitter.com/329Valentina) | [Github](https://github.com/valerc123) 
+
 Santiago Agudelo | [Twitter](https://twitter.com/sagudecod97) | [Github](https://github.com/sagudecod97) 
 
 ### CONTACT
