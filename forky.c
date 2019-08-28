@@ -12,7 +12,7 @@
 int forky(char **argum, char **path, char **env)
 {
 	pid_t pid;
-	int i = 0;
+	int i = 0/**, count = 0**/;
 
 	pid = fork();
 
@@ -25,15 +25,30 @@ int forky(char **argum, char **path, char **env)
 		}
 		else
 		{
-			while (access(path[i], X_OK | F_OK) < 0)
-				i++;
-
-			if (path[i - 1] == NULL)
+			while (path[i])
 			{
-				printf("Error\n");
-				return (-1);
+				/**printf("*******%s\n", path[i]);**/
+				i++;
 			};
-			execve(path[i], argum, NULL);
+
+			i = 0;
+
+			while (access(path[i], X_OK | F_OK) < 0 && path[i] != NULL)
+			{
+				/**printf("%s\n", path[i]);**/
+				i++;
+			};
+			/**count = ptrCount(path);**/
+			/**printf("Variable 'i': %i and Count: %i\n", i, count);**/
+
+			/**if (i == ptrCount(path))
+				return (-1);**/
+			if (path[i] == NULL)
+			{
+				if ((execve(path[i], argum, NULL)) == -1)
+					return (-1);
+			} else
+				execve(path[i], argum, NULL);
 		}
 		return (-1);
 	}
