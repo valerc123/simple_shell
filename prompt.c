@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include "holberton.h"
 
 /**
@@ -15,7 +12,6 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char **argv)
 	size_t size = 69;
 	char *buff, **argum, **path, **envForky;
 	char **pathPrint, **pathOut, **env = environ;
-	int c = 0;
 
 	envForky = env;
 	pathOut = getPath(envForky);
@@ -25,7 +21,7 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char **argv)
 		return (0);
 	}
 
-	while (c != EOF) /** Wait till the signal EOF **/
+	while (EOF) /** Wait till the signal EOF **/
 	{
 		buff = malloc(sizeof(char) * size); /** alloc memory to the buff **/
 		if (buff == NULL)
@@ -34,7 +30,7 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char **argv)
 		};
 		write(1, "$ ", 3);
 		fflush(stdin); /**clean the stdin**/
-		c = getline(&buff, &size, stdin); /** Get what the user types **/
+		getline(&buff, &size, stdin); /** Get what the user types **/
 		argum = malloc(sizeof(char *) * 1024); /** Alloc the memory**/
 		if (argum == NULL)
 		{
