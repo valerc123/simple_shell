@@ -35,6 +35,8 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char **argv)
 		write(1, "$ ", 3);
 		fflush(stdin); /**clean the stdin**/
 		c = getline(&buff, &size, stdin); /** Get what the user types **/
+		if (*buff == '\n')
+			continue;
 		argum = malloc(sizeof(char *) * 1024); /** Alloc the memory**/
 		if (argum == NULL)
 		{
