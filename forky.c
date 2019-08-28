@@ -20,7 +20,7 @@ int forky(char **argum, char **path, char **env)
 	{
 		if (argum[0][0] == '/')
 		{
-			if (execve(argum[0], argum, NULL) == -1
+			if (execve(argum[0], argum, NULL) == -1)
 					return (-1);
 		}
 		else
