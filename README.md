@@ -2,7 +2,7 @@
 
 ## ABOUT SHELL
 
-Shell is an environment in which we can run our commands, programs, and shell scripts. 
+Shell is an environment in which we can run our commands, programs, and shell scripts.
 It allows users to interact with the operating system, processing the commands that are given to them through the scripts. Shells are created through the implementation of system startup scripts.
 
 ### VERSION
@@ -22,12 +22,12 @@ This shell can be run in interactive mode:
 ```sh
 $ ./hsh
 ```
-Or non-interactive mode: 
+Or non-interactive mode:
 ```sh
 $ echo "ls -l" | ./hsh
 ```
 ### EXAMPLES
-1. Display content of file holberton.h 
+1. Display content of file holberton.h
 ```sh
 $ cat holberton.h
 ```
@@ -63,7 +63,7 @@ $ touch file1.c  file2.c
 ```
 3. Create directory named dirname
 ```sh
-$ mkdir dirname 
+$ mkdir dirname
 ```
 4. Path of current directory in non-interactive mode
 ```sh
@@ -123,14 +123,14 @@ $ env
 ```
 For exit the program:
 ```sh
-$ exit 
+$ exit
 ```
 
 ### AUTHORS
 
-Valentina Rúa | [Twitter](https://twitter.com/329Valentina) | [Github](https://github.com/valerc123) 
+Valentina Rúa | [Twitter](https://twitter.com/329Valentina) | [Github](https://github.com/valerc123)
 
-Santiago Agudelo | [Twitter](https://twitter.com/sagudecod97) | [Github](https://github.com/sagudecod97) 
+Santiago Agudelo | [Twitter](https://twitter.com/sagudecod97) | [Github](https://github.com/sagudecod97)
 
 ### CONTACT
 Feel free to send us a message on github with your feedback or any suggestion, or if you have any problems.
