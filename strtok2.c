@@ -28,21 +28,20 @@ char **_strtok2(char *path)
 		tokCuantity++;
 		token = strtok(NULL, ":");
 	};
-
-	free(copy);
-
-	arr_TOK = (char **) malloc(sizeof(char *) * tokCuantity);
+	arr_TOK = (char **) malloc(sizeof(char *) * (tokCuantity + 1));
 	token = strtok(path, ":");
 
 	while (token)
 	{
-		arr_TOK[i] = malloc(sizeof(char) * _strLen(token) + 1);
+		arr_TOK[i] = malloc(sizeof(char) * _strLen(token));
 		arr_TOK[i] = token;
 		token = strtok(NULL, ":");
 		i++;
 	};
 
 	arr_TOK[i] = NULL;
+
+	free(copy);
 
 	return (arr_TOK);
 }
