@@ -9,8 +9,8 @@
 
 char **cocaCommand(char *command, char **arrEnv)
 {
-	int lenArr = 1, lenComm = 0;
-	int i, j, p, numPtsArr = 0;
+	int lenArr = 0, lenComm = 0;
+	int i, j, p = 0, numPtsArr = 0;
 	char **retArr;
 
 	lenComm = _strLen(command);
@@ -18,13 +18,13 @@ char **cocaCommand(char *command, char **arrEnv)
 	while (arrEnv[numPtsArr])
 		numPtsArr++;
 
-	retArr = (char **)malloc(sizeof(char *) * numPtsArr);
+	retArr = (char **)malloc(sizeof(char *) * (numPtsArr + 1));
 
 	for (i = 0; arrEnv[i] != NULL; i++)
 	{
 		p = 0;
 		lenArr = _strLen(arrEnv[i]);
-		retArr[i] = malloc(sizeof(char) * (lenComm + lenArr + 1));
+		retArr[i] = malloc(sizeof(char) * (lenComm + lenArr + 2));
 		for (j = 0; j <= (lenComm + lenArr); j++)
 		{
 			if (j < lenArr)
@@ -36,11 +36,11 @@ char **cocaCommand(char *command, char **arrEnv)
 				retArr[i][j] = command[p];
 				p++;
 			}
-		}
+		};
+		retArr[i][j] = '\0';
 	};
 
 	retArr[i] = NULL;
-
 	return (retArr);
 }
 

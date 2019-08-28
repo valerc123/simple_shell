@@ -9,13 +9,12 @@
  * Return: 0 on succes, -1 on failure
  */
 
-int forky(char **argum, char **path, char **env)
+int forky(char **argum, char **path, char **env, char *buff)
 {
 	pid_t pid;
-	int i = 0/**, count = 0**/;
+	int i = 0, c = -1;
 
 	pid = fork();
-
 	if (pid == 0)
 	{
 		if (argum[0][0] == '/')
@@ -25,30 +24,15 @@ int forky(char **argum, char **path, char **env)
 		}
 		else
 		{
-			while (path[i])
+			while (c < 0 && path[i] != NULL)
 			{
-				/**printf("*******%s\n", path[i]);**/
-				i++;
-			};
-
-			i = 0;
-
-			while (access(path[i], X_OK | F_OK) < 0 && path[i] != NULL)
-			{
-				/**printf("%s\n", path[i]);**/
-				i++;
-			};
-			/**count = ptrCount(path);**/
-			/**printf("Variable 'i': %i and Count: %i\n", i, count);**/
-
-			/**if (i == ptrCount(path))
-				return (-1);**/
+				c = access(path[i], X_OK | F_OK);
+				if (c < 0)
+					i++;
+			}
 			if (path[i] == NULL)
-			{
-				if ((execve(path[i], argum, NULL)) == -1)
-					return (-1);
-			} else
-				execve(path[i], argum, NULL);
+				return (execve(path[0], argum, NULL));
+			execve(path[i], argum, NULL);
 		}
 		return (-1);
 	}
@@ -63,5 +47,6 @@ int forky(char **argum, char **path, char **env)
 			return (-1);
 		return (0);
 	};
+	free(buff);
 	return (0);
 }
