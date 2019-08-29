@@ -16,8 +16,9 @@ int nonInteractive(char **env)
 	{
 		argum = _strtok1(buff); /** Returns an array of the tokens of buff **/
 		pathPrint = cocaCommand(argum[0], env);
-		if (forky(argum, pathPrint, env, buff) == -1)
+		if (forky(argum, pathPrint) == -1)
 			return (-1);
+		_free(pathPrint);
 	}
 	return (0);
 }
