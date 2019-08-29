@@ -9,7 +9,7 @@
  * Return: 0 on succes, -1 on failure
  */
 
-int forky(char **argum, char **path, char **env, char *buff)
+int forky(char **argum, char **path)
 {
 	pid_t pid;
 	int i = 0, c = -1;
@@ -20,7 +20,9 @@ int forky(char **argum, char **path, char **env, char *buff)
 		if (argum[0][0] == '/')
 		{
 			if (execve(argum[0], argum, NULL) == -1)
+			{
 				return (-1);
+			}
 		}
 		else
 		{
@@ -40,13 +42,5 @@ int forky(char **argum, char **path, char **env, char *buff)
 		return (-1);
 	else if (pid > 0)
 		wait(&pid);
-
-	if ((strcmp(argum[0], "env") == 0) || (strcmp(argum[0], "exit") == 0))
-	{
-		if (exitEnvBuilt(env, argum[0]) == -1)
-			return (-1);
-		return (0);
-	};
-	free(buff);
 	return (0);
 }

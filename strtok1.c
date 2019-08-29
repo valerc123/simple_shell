@@ -38,8 +38,8 @@ char **_strtok1(char *buff)
 
 	while (token)
 	{
-		arr_TOK[i] = malloc(sizeof(char)* _strLen(token));
-		arr_TOK[i] = token;
+		arr_TOK[i] = malloc(sizeof(char) * (_strLen(token) + 1));
+		_strcpy(arr_TOK[i], token);
 		token = strtok(NULL, DELIMITER);
 		i++;
 	};

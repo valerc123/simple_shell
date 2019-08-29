@@ -10,20 +10,20 @@
 int main(__attribute__((unused)) int argc, __attribute__((unused)) char **argv)
 {
 	size_t size = 69;
-	char *buff, **argum, **path, **envForky;
-	char **pathPrint, **pathOut, **env = environ;
+	char *buff = NULL, **argum = NULL, **path = NULL;
+	char **pathPrint = NULL, **pathOut = NULL, **env = environ;
 	int c = 0;
 
-	envForky = env;
-	pathOut = getPath(envForky);
+	pathOut = getPath(env);
 	if (isatty(STDIN_FILENO) != 1)
 	{
 		nonInteractive(pathOut);
+		_free(pathOut);
 		return (0);
 	};
 	while (c != EOF) /** Wait till the signal EOF **/
 	{
-		buff = malloc(sizeof(char) * size); /** alloc memory to the buff **/
+		buff = malloc(sizeof(char) * size);  /*alloc memory to the buff*/
 		if (buff == NULL)
 		{
 			free(buff);
@@ -32,21 +32,17 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char **argv)
 		fflush(stdin); /**clean the stdin**/
 		c = getline(&buff, &size, stdin); /** Get what the user types **/
 		if (*buff == '\n')
-		{
-			free(buff);
-			continue;
-		};
-		argum = malloc(sizeof(char *) * 1024); /** Alloc the memory**/
-		if (argum == NULL)
-		{
-			free(argum);
-			perror("Error ");
-		};
+		{_free(pathOut), free(buff), continue; }
+		if (c == EOF)
+		{free(buff), break; }
 		argum = _strtok1(buff); /** Returns an array of the tokens of buff **/
 		path = pathOut;
 		pathPrint = cocaCommand(argum[0], path);
-		if (forky(argum, pathPrint, env, buff) == -1)
-			perror("./shell");
+		if (forky(argum, pathPrint) == -1)
+		{_free(argum), _free(pathPrint), free(buff), perror("./shell"), continue; }
+		else
+		{ _free(argum), _free(pathPrint), free(buff), continue; }
 	};
+	_free(pathOut);
 	return (0);
 }

@@ -21,10 +21,11 @@ char *arrRet(char **env);
 char **cocaCommand(char *command, char **arrEnv);
 char **getPath(char **env);
 char *_strcat(char *dest, char *src);
-int forky(char **argum, char **path, char **env, char *buff);
+int forky(char **argum, char **path);
 int exitEnvBuilt(char **env, char *argum);
 int _strcmp(char *s1, char *s2);
 int nonInteractive(char **env);
 int ptrCount(char **ptr);
+void _free(char **arr);
 
 #endif
