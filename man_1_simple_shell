@@ -7,18 +7,22 @@
 .sp
 .SH DESCRIPTION
 Simple shell simulates the behavior of a unix shell 
-.B sh
+.B
+.sp
 This program was created by first semester Holberton School students.
 .sp
-.B Run
+.B Run:
 .RS
 The program is compiled with the following command:
+.sp
 .B gcc -Wall -Werror -Wextra -pedantic *.c -o shell
-to execute the program
+.sp
+To execute the program:
+.sp
 .B ./shell
 .RE
 .sp
-.B Overview
+.B Overview:
 .RS
 Simple shell interprets the commands passed by the standard input, this generates a child process with the system call fork(), in it the system call execve() will be called that is the one that is in charge of execute the program pointed to by filename, The arguments for execve() are an array of strings formed from the input,
 and the environment variables. 
@@ -27,8 +31,13 @@ The child process will be replaced by the execution of the command, and the prog
 .sp
 .SH SYNTAX
 $ <command> <flags or options> <argument 1> <argument 2> ...
+.RE
+.sp
 OR NON-INTERACTIVE MODE:
+.RE
+.sp
 $ <command> | ./shell
+.SS
 .I echo
 followed by the command in double quotes into ./shell. This mode doesn't print a prompt and executes the command directly.
 .RE
@@ -37,6 +46,7 @@ Interactive mode:
 <command>
 .SS
 EXAMPLES:
+.SS
 $ pwd
 Prints the absolute path of the current directory
 .SS
@@ -47,12 +57,15 @@ $ cat filename
 Will display the content of filename
 .SS
 Non-interactive mode:
-.SS
+.RE
+.sp
 EXAMPLE:
 $ echo "ls -l" | ./shell
-will show the list of all files of current directory in long format, in non-interactive mode
 .sp
-.B Path search
+.RE
+Will show the list of all files of current directory in long format, in non-interactive mode
+.sp
+.B Path search:
 .RS
 The PATH environment variable is a colon-delimited list of directories that your shell searches through when you enter a command.
 
@@ -61,15 +74,15 @@ Program files (executables) are kept in many different places on the Unix system
 If it's not a builtin, and the command is the full name of an executable, like /bin/ls, it will be executed. 
 .RE
 .sp
-.B Builtins
+.B Builtins:
 .RS
 Simple Shell has two builtins that simulate the real shell builtins.
 .sp
 .RS
-.B - exit [status]
+.B - exit [status]:
 exits the program with an exit status of the value specified as an argument by the user.
 .sp
-.B - env
+.B - env:
 prints the environment variables list to the standard output.
 .B - cd
 change directory
