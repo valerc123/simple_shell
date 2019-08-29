@@ -5,7 +5,6 @@
  * forky - Executes the fork
  * @argum: Array of pointers
  * @path: The tokens of path
- * @env: Environment variables
  * Return: 0 on succes, -1 on failure
  */
 
